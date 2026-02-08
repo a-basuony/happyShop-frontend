@@ -10,13 +10,18 @@
 import axios from "axios";
 
 const baseUrl = axios.create({
-  baseURL: "https://backend-e-commerce-amber.vercel.app",
-  // withCredentials: true,
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
+  baseURL: "https://backend-e-commerce-amber.vercel.app", // أضف المسار الأساسي هنا
+  withCredentials: true, // مهم جداً لأنك تستخدم Cookies
 });
+
+// const baseUrl = axios.create({
+//   baseURL: "https://backend-e-commerce-amber.vercel.app",
+//   // withCredentials: true,
+//   headers: {
+//     "Content-Type": "application/json",
+//     Accept: "application/json",
+//   },
+// });
 
 // ✅ إضافة Interceptor لضمان إرسال التوكن لو موجود في الـ LocalStorage
 baseUrl.interceptors.request.use(
