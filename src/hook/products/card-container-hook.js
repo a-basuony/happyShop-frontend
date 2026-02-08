@@ -10,9 +10,14 @@ const CardContainerHook = () => {
 
   useEffect(() => {
     const get = async () => {
-      setLoading(true);
-      await dispatch(getProductWishList());
-      setLoading(false);
+      const token = localStorage.getItem("token");
+      if (token) {
+        setLoading(true);
+        await dispatch(getProductWishList());
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
     };
 
     get();
